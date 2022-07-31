@@ -2,7 +2,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoi
 
 
 
-local watermark = library:Watermark("Polymer Hax | V.1.0 | Dev")
+local watermark = library:Watermark("Polymer Hax | V.1.0 | Reg")
 -- watermark:Set("Watermark Set")
 -- watermark:Hide() -- toggles watermark
 
@@ -25,7 +25,7 @@ local section = tab:Section{
     Side = "Left"
 }
 
-local label = section:Label("Graves#0003")
+local label = section:Label("plr#0001")
 
 --label:Set("Label Set")
 
@@ -40,7 +40,7 @@ local slider = section:Slider{
     Text = "[value]/1",
     --Default = 0.1,
     Min = 0.005,
-    Max = 1,
+    Max = 0.5,
     Float = 0.005,
     Flag = "Lock-Smoothnes",
     Callback = function(value)
