@@ -36,11 +36,11 @@ local seperator = section:Separator("Aimlock")
 
 local slider = section:Slider{
     Name = "Lock-Smoothnes",
-    Text = "[value]/1",
+    Text = "[value]/0.5",
     --Default = 0.1,
     Min = 0.005,
     Max = 0.5,
-    Float = 0.05,
+    Float = 0.005,
     Flag = "Lock-Smoothnes",
     Callback = function(value)
   getgenv().SmoothnessAmount = value
