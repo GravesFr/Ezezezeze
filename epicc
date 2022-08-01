@@ -34,7 +34,6 @@ local seperator = section:Separator("Aimlock")
 --separator:Set("Separator Set")
 
 
-
 local slider = section:Slider{
     Name = "Lock-Smoothnes",
     Text = "[value]/1",
@@ -65,9 +64,9 @@ local slider = section:Slider{
     Name = "Lock-Radius",
     Text = "[value]/25",
     --Default = 0.1,
-    Min = 2.5,
+    Min = 0,
     Max = 25,
-    Float = 0.1,
+    Float = 0.5,
     Flag = "Lock-Radius",
     Callback = function(value)
 getgenv().AimRadius = value
