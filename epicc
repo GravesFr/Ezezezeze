@@ -64,10 +64,10 @@ local toggle = section:Toggle{
 
 local slider = section:Slider{
     Name = "Lock-Smoothnes",
-    Text = "[value]/0.25",
+    Text = "[value]/0.125",
     --Default = 0.1,
-    Min = 0.0025,
-    Max = 0.25,
+    Min = 0.001,
+    Max = 0.125,
     Float = 0.001,
     Flag = "Lock-Smoothnes",
     Callback = function(value)
@@ -94,7 +94,7 @@ local slider = section:Slider{
     --Default = 0.1,
     Min = 0,
     Max = 25,
-    Float = 0.25,
+    Float = 0.5,
     Flag = "Lock-Radius",
     Callback = function(value)
 getgenv().AimRadius = value
@@ -211,8 +211,8 @@ section:Button{
    Callback  = function()
 local Toggled = true
 local KeyCode = 'z'
-local hip = 1.50
-local val = -25
+local hip = 1.80
+local val = -35
 
 
 
@@ -359,7 +359,7 @@ section:Button{
     Name = "Cframe-Speed",
     Text = "[value]/5",
     --Default = 0.1,
-    Min = 0.5,
+    Min = 0.1,
     Max = 5,
     Float = 0.1,
     Flag = "Lock-Prediction",
