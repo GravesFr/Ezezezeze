@@ -860,7 +860,7 @@ local url =
 local data = {
   ["embeds"] = {
       {
-          ["title"] = "**A User Has Executed Polymer Hax!**",
+          ["title"] = "**Exie Inject Log.**",
           ["description"] = "Username - " .. game.Players.LocalPlayer.Name.." With **"..webhookcheck.."**",
           ["type"] = "rich",
           ["color"] = tonumber(0x7269da),
