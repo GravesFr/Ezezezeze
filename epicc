@@ -44,7 +44,7 @@ local seperator = section:Separator("Aimbot Settings")
 local toggle = section:Toggle{
    Name = "Toggle",
    Flag = "Toggle 1",
-   Default = true,
+   Default = false,
    Callback  = function(bool)
     getgenv().ThirdPerson = bool 
     getgenv().FirstPerson = bool
@@ -52,7 +52,20 @@ local toggle = section:Toggle{
 }
 
 
-
+local dropdown = section:Dropdown{
+   Name = "Lock-Keybind",
+   Default = "q",
+   Content = {
+       "q",
+       "x",
+       "c",
+       "e"
+   },
+   Flag = "Dropdown 1",
+   Callback = function(option)
+ getgenv().AimlockKey = option 
+   end
+}
 
 
 
@@ -142,7 +155,7 @@ local seperator = section:Separator("Silentaim Settings")
 local toggle = section:Toggle{
    Name = "Toggle",
    Flag = "Toggle 1",
-   Default = true,
+   Default = false,
    Callback  = function(bool)
      getgenv().Aiming.Enabled = bool
    end
@@ -151,7 +164,7 @@ local toggle = section:Toggle{
 local box = section:Box{
    Name = "Prediction",
    --Default = "hi",
-   Placeholder = "Pred (0.115 - 0.185)",
+   Placeholder = "Pred (0.110 - 0.170)",
    Flag = "Box 1",
    Callback = function(text)
    DaHoodSettings.Prediction = text    
@@ -170,6 +183,14 @@ local toggle = section:Toggle{
    end
 }
 
+local togglepicker1 = toggle:ColorPicker{
+   Default = Color3.fromRGB(100, 59, 154),
+   Flag = "Toggle 1 Picker 1",
+   Callback = function(color)
+     Aiming.FOVColour = color
+     end
+}
+
 local slider = section:Slider{
     Name = "Size",
     Text = "[value]/25",
@@ -183,13 +204,7 @@ local slider = section:Slider{
     end
 }
 
-local togglepicker1 = toggle:ColorPicker{
-   Default = Color3.fromRGB(100, 59, 154),
-   Flag = "Toggle 1 Picker 1",
-   Callback = function(color)
-     Aiming.FOVColour = color
-     end
-}
+
 
 
 
@@ -679,8 +694,8 @@ getgenv().OldAimPart = "Head"
 getgenv().AimPart = "Head" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}  
     getgenv().AimlockKey = "q"
     getgenv().AimRadius = 1 -- How far away from someones character you want to lock on at
-    getgenv().ThirdPerson = true 
-    getgenv().FirstPerson = true
+    getgenv().ThirdPerson = false
+    getgenv().FirstPerson = false
     getgenv().TeamCheck = false -- Check if Target is on your Team (True means it wont lock onto your teamates, false is vice versa) (Set it to false if there are no teams)
     getgenv().PredictMovement = true -- Predicts if they are moving in fast velocity (like jumping) so the aimbot will go a bit faster to match their speed 
     getgenv().PredictionVelocity = 2.5
