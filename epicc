@@ -1,8 +1,8 @@
-loadstring(game:HttpGet("https://gist.githubusercontent.com/diegxw/46748ae27e8a4630619d85ea1e13dc5e/raw/5225600f4150f87646b8d20088a1da9f100aaa06/settingsV2"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Vamplicity/Streamable-Lock/main/Silent"))()
 DaHoodSettings.Prediction = 0
 Aiming.TargetPart = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "RightFoot", "LeftFoot"}
-Aiming.FOV = 0
-Aiming.FOVSides = 25
+Aiming.FOV = 2.5
+Aiming.FOVSides = 50
 Aiming.HitChance = 110
 Aiming.ShowFOV = false
 
@@ -10,12 +10,12 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoi
 
 
 
-local watermark = library:Watermark("Exie.Exe | V.1.3.8 | Beta")
+local watermark = library:Watermark("Exie.Exe | V-1.1.8 | Beta")
 -- watermark:Set("Watermark Set")
 -- watermark:Hide() -- toggles watermark
 
 local main = library:Load{
-    Name = "Exie.Exe",
+    Name = "Exie.Exe [Credits - plr#0001]",
     SizeX = 350,
     SizeY = 500,
     Theme = "Midnight",
@@ -26,10 +26,10 @@ local main = library:Load{
 -- library.Extension = "txt" (config file extension)
 -- library.Folder = "config folder name"
 
-local tab = main:Tab("Main")
+local tab = main:Tab("Aiming")
 
 local section = tab:Section{
-    Name = "Credit - plr#0001",
+    Name = "Aimbot",
     Side = "Left"
 }
 
@@ -41,29 +41,24 @@ local seperator = section:Separator("Aimbot Settings")
 --separator:Set("Separator Set")
 
 
-
-
 local toggle = section:Toggle{
-   Name = "Smoothness-Toggle",
+   Name = "Toggle",
    Flag = "Toggle 1",
    Default = true,
    Callback  = function(bool)
-       getgenv().Smoothness = bool
+    getgenv().ThirdPerson = bool 
+    getgenv().FirstPerson = bool
    end
 }
 
-local toggle = section:Toggle{
-   Name = "Prediction-Toggle",
-   Flag = "Toggle 1",
-   Default = true,
-   Callback  = function(bool)
-       getgenv().PredictMovement = bool
-   end
-}
+
+
+
+
 
 
 local slider = section:Slider{
-    Name = "Lock-Smoothnes",
+    Name = "Smoothness",
     Text = "[value]/0.125",
     --Default = 0.1,
     Min = 0.001,
@@ -76,7 +71,7 @@ local slider = section:Slider{
 }
 
 local slider = section:Slider{
-    Name = "Lock-Prediction",
+    Name = "Prediction",
     Text = "[value]/10",
     --Default = 0.1,
     Min = 2.5,
@@ -89,12 +84,12 @@ local slider = section:Slider{
 }
 
 local slider = section:Slider{
-    Name = "Lock-Fov",
-    Text = "[value]/25",
+    Name = "Fov",
+    Text = "[value]/10",
     --Default = 0.1,
-    Min = 0,
-    Max = 25,
-    Float = 0.5,
+    Min = 1,
+    Max = 10,
+    Float = 0.1,
     Flag = "Lock-Radius",
     Callback = function(value)
 getgenv().AimRadius = value
@@ -103,7 +98,7 @@ getgenv().AimRadius = value
 
 local dropdown = section:Dropdown{
    Name = "Aim-Part",
-   Default = "Head",
+   Default = "UpperTorso",
    Content = {
        "Head",
        "UpperTorso",
@@ -118,35 +113,53 @@ local dropdown = section:Dropdown{
    end
 }
 
+local toggle = section:Toggle{
+   Name = "Smoothness",
+   Flag = "Toggle 1",
+   Default = true,
+   Callback  = function(bool)
+       getgenv().Smoothness = bool
+   end
+}
+
+local toggle = section:Toggle{
+   Name = "Prediction",
+   Flag = "Toggle 1",
+   Default = true,
+   Callback  = function(bool)
+       getgenv().PredictMovement = bool
+   end
+}
+
 local section = tab:Section{
-    Name = "Credit - plr#0001",
+    Name = "Silentaim",
     Side = "Right"
 }
 
 local seperator = section:Separator("Silentaim Settings")
 
+
+local toggle = section:Toggle{
+   Name = "Toggle",
+   Flag = "Toggle 1",
+   Default = true,
+   Callback  = function(bool)
+     getgenv().Aiming.Enabled = bool
+   end
+}
+
 local box = section:Box{
    Name = "Prediction",
    --Default = "hi",
-   Placeholder = "Silentaim-Prediction",
+   Placeholder = "Pred (0.115 - 0.185)",
    Flag = "Box 1",
    Callback = function(text)
    DaHoodSettings.Prediction = text    
    end
 }
 
-local slider = section:Slider{
-    Name = "Fov-Size",
-    Text = "[value]/25",
-    --Default = 0.1,
-    Min = 0,
-    Max = 25,
-    Float = 0.25,
-    Flag = "Lock-Prediction",
-    Callback = function(value)
- Aiming.FOV = value
-    end
-}
+
+
 
 local toggle = section:Toggle{
    Name = "Show-Fov",
@@ -157,6 +170,19 @@ local toggle = section:Toggle{
    end
 }
 
+local slider = section:Slider{
+    Name = "Size",
+    Text = "[value]/25",
+    --Default = 0.1,
+    Min = 2.5,
+    Max = 25,
+    Float = 0.25,
+    Flag = "Lock-Prediction",
+    Callback = function(value)
+ Aiming.FOV = value
+    end
+}
+
 local togglepicker1 = toggle:ColorPicker{
    Default = Color3.fromRGB(100, 59, 154),
    Flag = "Toggle 1 Picker 1",
@@ -165,17 +191,28 @@ local togglepicker1 = toggle:ColorPicker{
      end
 }
 
+
+
 local slider = section:Slider{
-    Name = "Fov-Sides",
-    Text = "[value]/25",
-    Default = 25,
+    Name = "Sides",
+    Text = "[value]/50",
+    Default = 50,
     Min = 2.5,
-    Max = 25,
+    Max = 50,
     Float = 0.1,
     Flag = "Lock-Prediction",
     Callback = function(value)
 Aiming.FOVSides = value
     end
+}
+
+local toggle = section:Toggle{
+   Name = "Visible-Check",
+   Flag = "Toggle 1",
+   Default = true,
+   Callback  = function(bool)
+     Aiming.VisibleCheck = bool
+   end
 }
 
 local multidropdown = section:Dropdown{
@@ -200,7 +237,7 @@ local tab = main:Tab("Misc")
 
 
 local section = tab:Section{
-    Name = "Credit - plr#0001",
+    Name = "Misc",
     Side = "Left"
 }
 local seperator = section:Separator("Antilock Settings")
@@ -211,8 +248,8 @@ section:Button{
    Callback  = function()
 local Toggled = true
 local KeyCode = 'z'
-local hip = 1.80
-local val = -35
+local hip = 2.20
+local val = -25
 
 
 
@@ -300,13 +337,13 @@ section:Button{
 }
 
 local section = tab:Section{
-    Name = "Credit - plr#0001",
+    Name = "Player",
     Side = "Right"
 }
 local seperator = section:Separator("Player Settings")
 
 section:Button{
-   Name = "Cframe (X)",
+   Name = "Cframe (V)",
    Callback  = function()
     repeat
         wait()
@@ -342,7 +379,7 @@ section:Button{
                 print(Multiplier)
             end
         end
-        if L_140_arg0.KeyCode == Enum.KeyCode.X then
+        if L_140_arg0.KeyCode == Enum.KeyCode.V then
             L_138_ = not L_138_
             if L_138_ == true then
                 repeat
@@ -357,10 +394,10 @@ section:Button{
   
   local slider = section:Slider{
     Name = "Cframe-Speed",
-    Text = "[value]/5",
+    Text = "[value]/2.5",
     --Default = 0.1,
     Min = 0.1,
-    Max = 5,
+    Max = 2.5,
     Float = 0.1,
     Flag = "Lock-Prediction",
     Callback = function(value)
@@ -641,7 +678,7 @@ watermark:Hide()
 getgenv().OldAimPart = "Head"
 getgenv().AimPart = "Head" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}  
     getgenv().AimlockKey = "q"
-    getgenv().AimRadius = 0 -- How far away from someones character you want to lock on at
+    getgenv().AimRadius = 1 -- How far away from someones character you want to lock on at
     getgenv().ThirdPerson = true 
     getgenv().FirstPerson = true
     getgenv().TeamCheck = false -- Check if Target is on your Team (True means it wont lock onto your teamates, false is vice versa) (Set it to false if there are no teams)
