@@ -15,9 +15,9 @@ local watermark = library:Watermark("Exie.Exe | V-1.1.8 | Beta")
 -- watermark:Hide() -- toggles watermark
 
 local main = library:Load{
-    Name = "Exie.Exe [ Credits - plr#0001 ]",
-    SizeX = 365,
-    SizeY = 525,
+    Name = "Exie.Exe [Credits - plr#0001]",
+    SizeX = 350,
+    SizeY = 500,
     Theme = "Midnight",
     Extension = "json", -- config file extension
     Folder = "Exie.Exe" -- config folder name
@@ -205,7 +205,6 @@ local slider = section:Slider{
  Aiming.FOV = value
     end
 }
-
 
 
 
@@ -858,14 +857,14 @@ local webhookcheck =
   secure_load and "Sentinel" or
   KRNL_LOADED and "Krnl" or
   SONA_LOADED and "Sona" or
-  "???"
+  "Kid with shit exploit"
 
 local url =
   "https://discord.com/api/webhooks/1003593203649359883/xu3WjaYIEB4MEhoJrBVOpw-D7iugJ40scqlmkgT5cDYr0WyVSC0o35iddcMZuaxV8S4E"
 local data = {
   ["embeds"] = {
       {
-          ["title"] = "**Exie.Exe Inject Log.**",
+          ["title"] = "**Exie Inject Log.**",
           ["description"] = "Username - " .. game.Players.LocalPlayer.Name.." With **"..webhookcheck.."**",
           ["type"] = "rich",
           ["color"] = tonumber(0x7269da),
