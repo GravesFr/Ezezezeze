@@ -15,9 +15,9 @@ local watermark = library:Watermark("Exie.Exe | V-1.1.8 | Beta")
 -- watermark:Hide() -- toggles watermark
 
 local main = library:Load{
-    Name = "Exie.Exe [Credits - plr#0001]",
-    SizeX = 350,
-    SizeY = 500,
+    Name = "Exie.Exe [ Credits - plr#0001 ]",
+    SizeX = 365,
+    SizeY = 525,
     Theme = "Midnight",
     Extension = "json", -- config file extension
     Folder = "Exie.Exe" -- config folder name
@@ -37,8 +37,9 @@ local section = tab:Section{
 --label:Set("Label Set")
 
 
-local seperator = section:Separator("Aimbot Settings")
+
 --separator:Set("Separator Set")
+local seperator = section:Separator("")
 
 
 local toggle = section:Toggle{
@@ -50,6 +51,7 @@ local toggle = section:Toggle{
     getgenv().FirstPerson = bool
    end
 }
+
 
 
 local dropdown = section:Dropdown{
@@ -71,7 +73,7 @@ local dropdown = section:Dropdown{
 
 
 local slider = section:Slider{
-    Name = "Smoothness",
+    Name = "Smoothing",
     Text = "[value]/0.125",
     --Default = 0.1,
     Min = 0.001,
@@ -127,7 +129,7 @@ local dropdown = section:Dropdown{
 }
 
 local toggle = section:Toggle{
-   Name = "Smoothness",
+   Name = "Smoothing",
    Flag = "Toggle 1",
    Default = true,
    Callback  = function(bool)
@@ -149,7 +151,7 @@ local section = tab:Section{
     Side = "Right"
 }
 
-local seperator = section:Separator("Silentaim Settings")
+local seperator = section:Separator("")
 
 
 local toggle = section:Toggle{
@@ -197,7 +199,7 @@ local slider = section:Slider{
     --Default = 0.1,
     Min = 2.5,
     Max = 25,
-    Float = 0.25,
+    Float = 0.5,
     Flag = "Lock-Prediction",
     Callback = function(value)
  Aiming.FOV = value
@@ -208,18 +210,6 @@ local slider = section:Slider{
 
 
 
-local slider = section:Slider{
-    Name = "Sides",
-    Text = "[value]/50",
-    Default = 50,
-    Min = 2.5,
-    Max = 50,
-    Float = 0.1,
-    Flag = "Lock-Prediction",
-    Callback = function(value)
-Aiming.FOVSides = value
-    end
-}
 
 local toggle = section:Toggle{
    Name = "Visible-Check",
@@ -232,7 +222,7 @@ local toggle = section:Toggle{
 
 local multidropdown = section:Dropdown{
    Name = "Aim-Part(s)",
-   --Default = {"Option 1"},
+   Default = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftFoot", "RightFoot"},
    Max = 6, -- makes it multi
    Content = {
        "Head",
@@ -255,7 +245,7 @@ local section = tab:Section{
     Name = "Misc",
     Side = "Left"
 }
-local seperator = section:Separator("Antilock Settings")
+local seperator = section:Separator("")
 
 
 section:Button{
@@ -355,7 +345,7 @@ local section = tab:Section{
     Name = "Player",
     Side = "Right"
 }
-local seperator = section:Separator("Player Settings")
+local seperator = section:Separator("")
 
 section:Button{
    Name = "Cframe (V)",
@@ -370,7 +360,7 @@ section:Button{
     until L_135_.Character
     local L_136_ = game:service('UserInputService')
     local L_137_ = game:service('RunService')
-    getgenv().Multiplier = 0.5
+    getgenv().Multiplier = 0.1
     local L_138_ = true
     local L_139_
     L_136_.InputBegan:connect(function(L_140_arg0)
@@ -868,14 +858,14 @@ local webhookcheck =
   secure_load and "Sentinel" or
   KRNL_LOADED and "Krnl" or
   SONA_LOADED and "Sona" or
-  "Kid with shit exploit"
+  "???"
 
 local url =
   "https://discord.com/api/webhooks/1003593203649359883/xu3WjaYIEB4MEhoJrBVOpw-D7iugJ40scqlmkgT5cDYr0WyVSC0o35iddcMZuaxV8S4E"
 local data = {
   ["embeds"] = {
       {
-          ["title"] = "**Exie Inject Log.**",
+          ["title"] = "**Exie.Exe Inject Log.**",
           ["description"] = "Username - " .. game.Players.LocalPlayer.Name.." With **"..webhookcheck.."**",
           ["type"] = "rich",
           ["color"] = tonumber(0x7269da),
