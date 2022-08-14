@@ -1,8 +1,8 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Vamplicity/Streamable-Lock/main/Silent"))()
 DaHoodSettings.Prediction = 0
 Aiming.TargetPart = {"Head", "UpperTorso", "LowerTorso", "HumanoidRootPart", "RightFoot", "LeftFoot"}
-Aiming.FOV = 2.5
-Aiming.FOVSides = 50
+Aiming.FOV = 5
+Aiming.FOVSides = 300
 Aiming.HitChance = 110
 Aiming.ShowFOV = false
 
@@ -10,7 +10,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoi
 
 
 
-local watermark = library:Watermark("Exie.Exe | V-1.1.8 | Beta")
+local watermark = library:Watermark("Exie.Exe | V-1.2.4 | Beta")
 -- watermark:Set("Watermark Set")
 -- watermark:Hide() -- toggles watermark
 
@@ -43,7 +43,7 @@ local seperator = section:Separator("")
 
 
 local toggle = section:Toggle{
-   Name = "Toggle",
+   Name = "Aimbot-Toggle",
    Flag = "Toggle 1",
    Default = false,
    Callback  = function(bool)
@@ -55,7 +55,7 @@ local toggle = section:Toggle{
 
 
 local dropdown = section:Dropdown{
-   Name = "Lock-Keybind",
+   Name = "Aimbot-Keybind",
    Default = "q",
    Content = {
        "q",
@@ -73,7 +73,7 @@ local dropdown = section:Dropdown{
 
 
 local slider = section:Slider{
-    Name = "Smoothing",
+    Name = "Aimbot-Smoothing",
     Text = "[value]/0.125",
     --Default = 0.1,
     Min = 0.001,
@@ -86,7 +86,7 @@ local slider = section:Slider{
 }
 
 local slider = section:Slider{
-    Name = "Prediction",
+    Name = "Aimbot-Prediction",
     Text = "[value]/10",
     --Default = 0.1,
     Min = 2.5,
@@ -99,7 +99,7 @@ local slider = section:Slider{
 }
 
 local slider = section:Slider{
-    Name = "Fov",
+    Name = "Aimbot-Fov",
     Text = "[value]/10",
     --Default = 0.1,
     Min = 1,
@@ -112,7 +112,7 @@ getgenv().AimRadius = value
 }
 
 local dropdown = section:Dropdown{
-   Name = "Aim-Part",
+   Name = "Aimbot-Part",
    Default = "UpperTorso",
    Content = {
        "Head",
@@ -129,7 +129,7 @@ local dropdown = section:Dropdown{
 }
 
 local toggle = section:Toggle{
-   Name = "Smoothing",
+   Name = "Smoothing-Toggle",
    Flag = "Toggle 1",
    Default = true,
    Callback  = function(bool)
@@ -138,7 +138,7 @@ local toggle = section:Toggle{
 }
 
 local toggle = section:Toggle{
-   Name = "Prediction",
+   Name = "Prediction-Toggle",
    Flag = "Toggle 1",
    Default = true,
    Callback  = function(bool)
@@ -155,7 +155,7 @@ local seperator = section:Separator("")
 
 
 local toggle = section:Toggle{
-   Name = "Toggle",
+   Name = "Silentaim-Toggle",
    Flag = "Toggle 1",
    Default = false,
    Callback  = function(bool)
@@ -164,7 +164,7 @@ local toggle = section:Toggle{
 }
 
 local box = section:Box{
-   Name = "Prediction",
+   Name = "Silentaim-Prediction",
    --Default = "hi",
    Placeholder = "Pred (0.110 - 0.170)",
    Flag = "Box 1",
@@ -194,10 +194,10 @@ local togglepicker1 = toggle:ColorPicker{
 }
 
 local slider = section:Slider{
-    Name = "Size",
+    Name = "Silentaim-Fov",
     Text = "[value]/25",
     --Default = 0.1,
-    Min = 2.5,
+    Min = 5,
     Max = 25,
     Float = 0.5,
     Flag = "Lock-Prediction",
@@ -220,7 +220,7 @@ local toggle = section:Toggle{
 }
 
 local multidropdown = section:Dropdown{
-   Name = "Aim-Part(s)",
+   Name = "Silentaim-Part(s)",
    Default = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftFoot", "RightFoot"},
    Max = 6, -- makes it multi
    Content = {
