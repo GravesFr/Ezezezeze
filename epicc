@@ -54,18 +54,13 @@ local toggle = section:Toggle{
 
 
 
-local dropdown = section:Dropdown{
+local box = section:Box{
    Name = "Aimbot-Keybind",
-   Default = "q",
-   Content = {
-       "q",
-       "x",
-       "c",
-       "e"
-   },
-   Flag = "Dropdown 1",
-   Callback = function(option)
- getgenv().AimlockKey = option 
+   --Default = "hi",
+   Placeholder = "(Lowercase-Only)",
+   Flag = "Box 1",
+   Callback = function(text)
+   getgenv().AimlockKey = text   
    end
 }
 
@@ -113,7 +108,7 @@ getgenv().AimRadius = value
 
 local dropdown = section:Dropdown{
    Name = "Aimbot-Part",
-   Default = "UpperTorso",
+   Default = "Head",
    Content = {
        "Head",
        "UpperTorso",
