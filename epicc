@@ -39,7 +39,7 @@ local section = tab:Section{
 
 
 --separator:Set("Separator Set")
-local seperator = section:Separator("")
+
 
 
 local toggle = section:Toggle{
@@ -146,7 +146,7 @@ local section = tab:Section{
     Side = "Right"
 }
 
-local seperator = section:Separator("")
+
 
 
 local toggle = section:Toggle{
@@ -239,7 +239,7 @@ local section = tab:Section{
     Name = "Misc",
     Side = "Left"
 }
-local seperator = section:Separator("")
+
 
 
 section:Button{
@@ -339,7 +339,7 @@ local section = tab:Section{
     Name = "Player",
     Side = "Right"
 }
-local seperator = section:Separator("")
+
 
 section:Button{
    Name = "Cframe (V)",
