@@ -15,7 +15,7 @@ local watermark = library:Watermark("Exie.Exe | V-1.2.4 | Beta")
 -- watermark:Hide() -- toggles watermark
 
 local main = library:Load{
-    Name = "Exie.Exe [Credits - plr#0001]",
+    Name = "Exie.Exe [Credits - Xilory#0001]",
     SizeX = 350,
     SizeY = 500,
     Theme = "Midnight",
